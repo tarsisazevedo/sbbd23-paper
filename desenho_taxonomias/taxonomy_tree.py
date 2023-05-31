@@ -14,7 +14,7 @@ sampled_nodes = {
 def desenha_arvore(data, nome_arquivo, full=False, orientation="LR", sample=False):
     # Cria o grafo
     graph = pgv.AGraph(directed=True)
-    graph.add_node("0", label=nome_arquivo[:-4])
+    graph.add_node("0", label="0")
 
     nodes_added = []
     # Adiciona os nós ao grafo
@@ -66,7 +66,7 @@ def desenha_arvore(data, nome_arquivo, full=False, orientation="LR", sample=Fals
             graph.add_edge(node_name, parent_id) 
     # Define a posição dos nós no layout
     graph.graph_attr["rankdir"] = orientation
-    graph.layout(prog="dot")
+    graph.layout(prog="dot", args="-Gdpi=200 -Nfontsize=14 -Nwidth=\".3\" -Nheight=\".3\" -Nmargin=0")
 
     # Salva o grafo em um arquivo de imagem
     if sample:
